@@ -5,9 +5,9 @@ metadata:
   namespace: federatorai
 spec:
   keycode:
-    codeNumber: R35PO-2YFOV-ZC2ER-4PBW5-2EGRF-4LVTA
+    codeNumber: UGTLQ-62NZU-P4HAX-XLMNU-P2UHP-UEDZA
   version: latest               ## for Federator.ai components
-  imageLocation: quay.io/fedaidatadog
+  imageLocation: quay.io/fedaigeneric
   storages:                     ## see following details for where it is used in each component
     - usage: log                ## storage setting for log
       type: ephemeral           ## ephemeral means emptyDir{}

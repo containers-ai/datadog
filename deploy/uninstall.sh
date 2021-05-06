@@ -51,7 +51,7 @@ parse_version(){
 
 download_operator_yaml_if_needed()
 {
-    operator_files=`curl --silent https://api.github.com/repos/containers-ai/datadog/contents/deploy/upstream?ref=${tag_number} 2>&1|grep "\"name\":"|cut -d ':' -f2|cut -d '"' -f2`
+    operator_files=`curl --silent https://api.github.com/repos/containers-ai/generic/contents/deploy/upstream?ref=${tag_number} 2>&1|grep "\"name\":"|cut -d ':' -f2|cut -d '"' -f2`
     if [ "$operator_files" = "" ]; then
         echo -e "\n$(tput setaf 1)Abort, download operator file list failed!!!$(tput sgr 0)"
         echo "Please check tag name and network"
@@ -61,7 +61,7 @@ download_operator_yaml_if_needed()
     for file in `echo $operator_files`
     do
         echo "Downloading file $file ..."
-        if ! curl -sL --fail https://raw.githubusercontent.com/containers-ai/datadog/${tag_number}/deploy/upstream/${file} -O; then
+        if ! curl -sL --fail https://raw.githubusercontent.com/containers-ai/generic/${tag_number}/deploy/upstream/${file} -O; then
             echo -e "\n$(tput setaf 1)Abort, download file failed!!!$(tput sgr 0)"
             echo "Please check tag name and network"
             exit 1
