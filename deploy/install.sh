@@ -841,7 +841,7 @@ if [ "$previous_alameda_namespace" != "" ];then
                                        | grep -A1 'name: .*RELATED_IMAGE_' | grep 'value: ' | grep '/alameda-ai:' \
                                        | sed -e 's|/alameda-ai:| |' | awk '{print $2}'`"
            ## Skip RELATED_IMAGE_URL_PREFIX if it is default value
-           [ "${RELATED_IMAGE_URL_PREFIX}" = "quay.io/fedaigeneric" ] && RELATED_IMAGE_URL_PREFIX=""
+           [ "${RELATED_IMAGE_URL_PREFIX}" = "quay.io/fedaidatadog" ] && RELATED_IMAGE_URL_PREFIX=""
         fi
     fi
 fi
@@ -972,7 +972,7 @@ fi
 if [ "$offline_mode_enabled" != "y" ]; then
     echo -e "\n$(tput setaf 2)Downloading ${tag_number} tgz file ...$(tput sgr 0)"
     tgz_name="${tag_number}.tar.gz"
-    if ! curl -sL --fail https://github.com/containers-ai/generic/archive/${tgz_name} -O; then
+    if ! curl -sL --fail https://github.com/containers-ai/datadog/archive/${tgz_name} -O; then
         echo -e "\n$(tput setaf 1)Error, download file $tgz_name failed!!!$(tput sgr 0)"
         echo "Please check tag name and network"
         exit 1
@@ -1016,7 +1016,7 @@ sed -i "s/:latest$/:${tag_number}/g" 03*.yaml
 
 # Specified alternative container image location
 if [ "${RELATED_IMAGE_URL_PREFIX}" != "" ]; then
-    sed -i -e "s%quay.io/fedaigeneric%${RELATED_IMAGE_URL_PREFIX}%g" 03*.yaml
+    sed -i -e "s%quay.io/fedaidatadog%${RELATED_IMAGE_URL_PREFIX}%g" 03*.yaml
 fi
 
 # No need for recent build

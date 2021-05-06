@@ -1,7 +1,7 @@
 # Get operator file list
 - name: Get operator file list
   uri:
-    url: "https://api.github.com/repos/containers-ai/generic/contents/deploy/upstream?ref={{ federatorai_version }}"
+    url: "https://api.github.com/repos/containers-ai/datadog/contents/deploy/upstream?ref={{ federatorai_version }}"
     method: GET
     return_content: yes
   register: operator_result
@@ -43,7 +43,7 @@
 # Download all files
 - name: Download all yamls
   get_url:
-    url: "https://raw.githubusercontent.com/containers-ai/generic/{{ federatorai_version }}/deploy/upstream/{{ item }}"
+    url: "https://raw.githubusercontent.com/containers-ai/datadog/{{ federatorai_version }}/deploy/upstream/{{ item }}"
     dest: "{{ default_yaml_files_base_path }}/{{ federatorai_version }}/{{ item }}"
     mode: 0755
     force: yes
@@ -96,7 +96,7 @@
 - name: Replace repo info in 03 yaml if necessary
   replace: 
     dest="{{ yaml_3_name.files[0].path }}" 
-    regexp="quay.io/fedaigeneric"
+    regexp="quay.io/fedaidatadog"
     replace="{{ image_url_prefix }}"
   when: (enable_private_repo == "y") and (image_url_prefix != "")
 
