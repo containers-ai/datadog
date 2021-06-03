@@ -4,8 +4,6 @@ metadata:
   name: my-alamedaservice
   namespace: federatorai
 spec:
-  keycode:
-    codeNumber: R35PO-2YFOV-ZC2ER-4PBW5-2EGRF-4LVTA
   version: latest               ## for Federator.ai components
   imageLocation: quay.io/fedaidatadog
   storages:                     ## see following details for where it is used in each component
