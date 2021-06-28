@@ -74,7 +74,7 @@ spec:
             - name: DISABLE_OPERAND_RESOURCE_PROTECTION
               value: "false"
             - name: DEFAULT_KEYCODE
-              value: "R35PO-2YFOV-ZC2ER-4PBW5-2EGRF-4LVTA"
+              value: "SF4ZA-COMOX-F2CVT-EOJPV-JTER2-YMP5Q"
           readinessProbe:
             failureThreshold: 20
             httpGet:
